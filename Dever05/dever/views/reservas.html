@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+
+    <style>
+        img{ 
+            display:block; 
+        }  
+    </style>
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <h1>Quartos</h1>
+    </div>
+    
+    <div class="d-flex justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/quartos">Quartos</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/reservas">Reservas</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+
+    <form class="form-horizontal" style="margin: 0 auto; width: 80%">
+        <fieldset>
+        
+        <!-- Form Name -->
+        <legend>Reservar</legend>
+        
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="nome">Nome</label>  
+            <div class="col-md-4">
+            <input id="nome" name="nome" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
+        
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="tipoQuarto">Quarto</label>
+            <div class="col-md-4">
+            <select id="tipoQuarto" name="tipoQuarto" class="form-control">
+                <option value="solteiro">Solteiro</option>
+                <option value="casal">Casal</option>
+                <option value="duplo">Duplo</option>
+            </select>
+            </div>
+        </div>
+        
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="sexo">Sexo</label>
+            <div class="col-md-4"> 
+            <label class="radio-inline" for="sexo-0">
+                <input type="radio" name="sexo" id="sexo-0" value="masculino" checked="checked">
+                Masculino
+            </label> 
+            <label class="radio-inline" for="sexo-1">
+                <input type="radio" name="sexo" id="sexo-1" value="feminino">
+                Feminino
+            </label>
+            </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+            <button id="submit" name="submit" class="btn btn-primary">Reservar</button>
+            </div>
+        </div>
+        
+        </fieldset>
+    </form>
+</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</html>
