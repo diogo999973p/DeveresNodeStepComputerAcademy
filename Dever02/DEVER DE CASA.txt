@@ -1,0 +1,2 @@
+Exiba no console 
+as mensagens enviadas para a tela.

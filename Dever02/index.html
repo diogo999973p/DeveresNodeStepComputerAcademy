@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      #messages { margin-bottom: 40px }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      let nomeUsuario = window.prompt("Digite seu nome para entrar no chat. Ou dê 'OK' para permanecer anônimo")
+
+      $(function () {
+        var socket = io();
+        $('form').submit(function(){ //quando alguém apertar para enviar o formulario
+          socket.emit('chat message',(nomeUsuario + ": " + $('#m').val())); //vai emitir pro socket um evento de chat message
+          $('#m').val('');
+          return false;
+        });
+
+        //prestando atenção no servidor, não no meu formulario e fica rodando o tempo todo
+        //ao entrar no socket(io) um evento chamado "chat message",  fazer...  ///capturando o valor do chat message
+        //guardando como parametro 'msg'
+        
+        //aqui está pegando do servidor
+        socket.on('chat message', function(msg){
+          $('#messages').append($('<li>').text(msg));
+          window.scrollTo(0, document.body.scrollHeight);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; margin: 0; padding: 0 }
+    </style>
+  </head>
+  
+  
+  <script src="/socket.io/socket.io.js">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script>
+    var socket = io(); 
+
+    socket.on("connect", async () => {
+      console.log("client: connected");
+    });
+
+    function enviaCadastro(){
+      nome = $('#nome').val();
+      email = $('#email').val();
+      idade = $('#idade').val();
+      cep = $('#cep').val();
+
+      cadastro = {'nome': nome, 'email': email, 'idade': idade, 'cep': cep};
+
+      socket.emit("cadastro", cadastro);
+
+      $('#nome').val('');
+      $('#email').val('');
+      $('#idade').val('');
+      $('#cep').val('');
+
+      return false;
+    }
+
+  </script>
+  
+  <body>
+  
+	<h3 class="text-center">Cadastro de Informações</h3>
+    <div class="d-flex justify-content-center">
+      <form class="form-horizontal">
+        <fieldset>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="nome">Nome</label>  
+          <div class="col-md-4">
+          <input id="nome" name="nome" type="text" placeholder="" class="form-control input-md">
+            
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="email">Email</label>  
+          <div class="col-md-4">
+          <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
+            
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="idade">Idade</label>  
+          <div class="col-md-4">
+          <input id="idade" name="idade" type="text" placeholder="" class="form-control input-md">
+            
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="cep">CEP</label>  
+          <div class="col-md-4">
+          <input id="cep" name="cep" type="text" placeholder="" class="form-control input-md">
+            
+          </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="submit"></label>
+          <div class="col-md-4">
+            <button id="submit" name="submit" class="btn btn-primary" onclick="enviaCadastro()">Enviar</button>
+          </div>
+        </div>
+        
+        </fieldset>
+      </form>
+    </div>
+  </body>
+
+</html>
